@@ -88,3 +88,41 @@
         cursor: pointer;
     }
 }
+
+// Dialogs=============================================
+.dialogs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__title {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    &__items {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+    }
+
+    &__item {
+        font-size: 18px;
+        line-height: 24px;
+        
+        &.active {
+            font-size: 22px;
+            line-height: 28px;
+        }
+
+        &.active,
+        &:hover {
+            color: gold;
+        }
+    }
+}
+
+// Messages=============================================
+.messages {
+
+}
