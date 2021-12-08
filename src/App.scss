@@ -41,6 +41,11 @@
         font-weight: 500;
         color: white;
         text-decoration: none;
+
+        &.active,
+        &:hover {
+            color: gold;
+        }
     }
 }
 
