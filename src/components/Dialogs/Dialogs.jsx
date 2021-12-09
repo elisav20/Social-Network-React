@@ -1,38 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+const DialogItem = (props) => {
+    return (
+        <div className="dialogs__item">
+            <NavLink to={`/dialogs/${props.id}`}>{props.name}</NavLink>
+        </div>
+    );
+};
+
+const Message = (props) => {
+    return <div className="messages__item">{props.message}</div>;
+};
+
 const Dialogs = () => {
     return (
         <div className="dialogs">
             <h2 className="dialogs__title">DIALOGS</h2>
             <div className="dialogs__items">
-                <div className="dialogs__item active">
-                    <NavLink to="/dialogs/1">Vasea</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/2">Andrei</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/3">Ghorghe</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/4">Victor</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/5">Valera</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/6">Sveta</NavLink>
-                </div>
-                <div className="dialogs__item">
-                    <NavLink to="/dialogs/7">Sasha</NavLink>
-                </div>
+                <DialogItem id="1" name="Vasea" />
+                <DialogItem id="2" name="Gheorghe" />
+                <DialogItem id="3" name="Andrei" />
+                <DialogItem id="4" name="Oleg" />
+                <DialogItem id="5" name="Sasha" />
+                <DialogItem id="1" name="Sveta" />
+                <DialogItem id="1" name="Abdulah" />
             </div>
 
             <div className="messages">
-                <div className="messages__item">Hy</div>
-                <div className="messages__item">How are you?</div>
-                <div className="messages__item">Yo</div>
+                <Message message="Hy" />
+                <Message message="How are you?" />
+                <Message message="Yo" />
             </div>
         </div>
     );
