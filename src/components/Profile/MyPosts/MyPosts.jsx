@@ -2,6 +2,27 @@ import React from "react";
 import Post from "./Post";
 
 const MyPosts = () => {
+    const postsData = [
+        {
+            id: 1,
+            message:
+                "Quisque id mi. Praesent vestibulum dapibus nibh. Nulla sit amet est. Praesent nec nisl a purus blandit viverra. Nulla sit amet est.",
+            likesCount: 10,
+        },
+        {
+            id: 2,
+            message:
+                "Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi.",
+            likesCount: 11,
+        },
+        {
+            id: 3,
+            message:
+                "Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium. Nulla porta dolor. Vivamus euismod mauris. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor.",
+            likesCount: 0,
+        },
+    ];
+
     return (
         <div className="my-posts">
             <h3>My posts</h3>
@@ -10,18 +31,18 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div className="posts">
-                <Post message="Quisque id mi. Praesent vestibulum dapibus nibh. Nulla sit amet est. Praesent nec nisl a purus blandit viverra. Nulla sit amet est." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium. Nulla porta dolor. Vivamus euismod mauris. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor." />
-                <Post message="Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Maecenas nec odio et ante tincidunt tempus. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi." />
-                <Post message="In turpis. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
-                <Post message="Fusce vulputate eleifend sapien. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Curabitur ullamcorper ultricies nisi. Pellentesque auctor neque nec urna. Nam eget dui." />
+                <Post
+                    message={postsData[0].message}
+                    likesCount={postsData[0].likesCount}
+                />
+                <Post
+                    message={postsData[1].message}
+                    likesCount={postsData[1].likesCount}
+                />
+                <Post
+                    message={postsData[2].message}
+                    likesCount={postsData[2].likesCount}
+                />
             </div>
         </div>
     );
