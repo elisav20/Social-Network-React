@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 
 const MyPosts = () => {
-    const postsData = [
+    let postsData = [
         {
             id: 1,
             message:
@@ -23,6 +23,10 @@ const MyPosts = () => {
         },
     ];
 
+    postsData = postsData.map((post) => (
+        <Post message={post.message} likesCount={post.likesCount} />
+    ));
+
     return (
         <div className="my-posts">
             <h3>My posts</h3>
@@ -30,20 +34,7 @@ const MyPosts = () => {
                 <textarea></textarea>
                 <button>Add post</button>
             </div>
-            <div className="posts">
-                <Post
-                    message={postsData[0].message}
-                    likesCount={postsData[0].likesCount}
-                />
-                <Post
-                    message={postsData[1].message}
-                    likesCount={postsData[1].likesCount}
-                />
-                <Post
-                    message={postsData[2].message}
-                    likesCount={postsData[2].likesCount}
-                />
-            </div>
+            <div className="posts">{postsData}</div>
         </div>
     );
 };
