@@ -7,7 +7,7 @@ const Content = (props) => {
         <div>
             <ProfileInfo />
             <MyPosts
-                postsData={props.state.postsData}
+                state={props.state}
                 dispatch={props.dispatch}
             />
         </div>
