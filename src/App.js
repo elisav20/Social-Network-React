@@ -5,7 +5,7 @@ import "./App.scss";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App = (props) => {
+const App = () => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -15,11 +15,11 @@ const App = (props) => {
                     <Routes>
                         <Route
                             path="/profile"
-                            element={<Profile store={props.store} />}
+                            element={<Profile />}
                         />
                         <Route
                             path="/dialogs/*"
-                            element={<DialogsContainer store={props.store} />}
+                            element={<DialogsContainer />}
                         />
                     </Routes>
                 </div>
