@@ -3,7 +3,7 @@ import Post from "./Post";
 
 const MyPosts = (props) => {
     const postsData = props.posts.map((post) => (
-        <Post message={post.message} likesCount={post.likesCount} />
+        <Post message={post.message} likesCount={post.likesCount} key={post.id} />
     ));
 
     const onAddPost = () => {
