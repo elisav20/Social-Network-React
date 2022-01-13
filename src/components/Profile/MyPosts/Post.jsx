@@ -1,6 +1,6 @@
 import React from "react";
-import userAvatar from "../../../images/user_avatar.png";
-import like from "../../../images/like.svg";
+import userAvatar from "../../../assets/images/user_avatar.png";
+import like from "../../../assets/images/like.svg";
 
 const Post = (props) => {
     return (

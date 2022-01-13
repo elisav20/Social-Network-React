@@ -1,45 +1,14 @@
+import * as axios from "axios";
 import React from "react";
+import noUserAvatar from "../../assets/images/no_user.png";
 
 const Users = (props) => {
-    if (props.users.lengt === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl:
-                    "https://i.pinimg.com/474x/0a/a8/58/0aa8581c2cb0aa948d63ce3ddad90c81.jpg",
-                fullName: "Dmitry",
-                status: "I am a boss",
-                location: {
-                    city: "Minsk",
-                    country: "Belarus",
-                },
-                followed: true,
-            },
-            {
-                id: 2,
-                fullName: "Sasha",
-                photoUrl:
-                    "https://i.pinimg.com/474x/0a/a8/58/0aa8581c2cb0aa948d63ce3ddad90c81.jpg",
-                status: "I am a boss too",
-                location: {
-                    city: "Russia",
-                    country: "Moscow",
-                },
-                followed: false,
-            },
-            {
-                id: 3,
-                fullName: "Andrew",
-                photoUrl:
-                    "https://i.pinimg.com/474x/0a/a8/58/0aa8581c2cb0aa948d63ce3ddad90c81.jpg",
-                status: "I am a boss too",
-                location: {
-                    city: "Ukraine",
-                    country: "Kiev",
-                },
-                followed: true,
-            },
-        ]);
+    if (props.users.length === 0) {
+        axios
+            .get("https://social-network.samuraijs.com/api/1.0/users")
+            .then((response) => {
+                props.setUsers(response.data.items);
+            });
     }
 
     return (
@@ -50,8 +19,12 @@ const Users = (props) => {
                         <div>
                             <img
                                 className="user__img"
-                                src={user.photoUrl}
-                                alt={user.fullName}
+                                src={
+                                    user.photos.small !== null
+                                        ? user.photos.small
+                                        : noUserAvatar
+                                }
+                                alt={user.name}
                             />
                         </div>
                         <div>
@@ -74,12 +47,12 @@ const Users = (props) => {
                     </div>
                     <div className="user__info">
                         <div>
-                            <div>{user.fullName}</div>
+                            <div>{user.name}</div>
                             <div>{user.status}</div>
                         </div>
                         <div>
-                            <div>{user.location.country}</div>
-                            <div>{user.location.city}</div>
+                            <div>{"user.location.country"}</div>
+                            <div>{"user.location.city"}</div>
                         </div>
                     </div>
                 </div>
