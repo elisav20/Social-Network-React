@@ -10,6 +10,11 @@ const Navbar = () => {
                 </NavLink>
             </div>
             <div className="nav__item">
+                <NavLink className="nav__link" to="/users">
+                    Users
+                </NavLink>
+            </div>
+            <div className="nav__item">
                 <NavLink className="nav__link" to="/dialogs">
                     Messages
                 </NavLink>
