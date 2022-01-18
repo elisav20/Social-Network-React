@@ -3,17 +3,41 @@ import React from "react";
 import noUserAvatar from "../../assets/images/no_user.png";
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
+            .get(
+                `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+            )
             .then((response) => {
                 this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
 
+    onPageChanged = (page) => {
+        this.props.setCurrentPage(page);
+
+        axios
+            .get(
+                `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`
+            )
+            .then((response) => {
+                this.props.setUsers(response.data.items);
+            });
+    };
+
     render() {
+        const pagesCount = Math.ceil(
+            this.props.totalUsersCount / this.props.pageSize
+        );
+        const pages = [];
+
+        for (let i = 1; i <= pagesCount; i++) {
+            if (pages.length < 10) {
+                pages.push(i);
+            }
+        }
+
         return (
             <div>
                 {this.props.users.map((user) => (
@@ -23,7 +47,7 @@ class Users extends React.Component {
                                 <img
                                     className="user__img"
                                     src={
-                                        user.photos.small !== null
+                                        user.photos.small != null
                                             ? user.photos.small
                                             : noUserAvatar
                                     }
@@ -64,6 +88,24 @@ class Users extends React.Component {
                         </div>
                     </div>
                 ))}
+                <div class="pagination">
+                    {pages.map((page) => {
+                        return (
+                            <button
+                                className={
+                                    page === this.props.currentPage
+                                        ? "pagination__item active"
+                                        : "pagination__item"
+                                }
+                                onClick={() => {
+                                    this.onPageChanged(page);
+                                }}
+                            >
+                                {page}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
         );
     }

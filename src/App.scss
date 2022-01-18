@@ -61,7 +61,7 @@
 .posts {
     margin-top: 15px;
     margin-bottom: 50px;
-    
+
     &__item {
         display: flex;
         align-items: center;
@@ -124,7 +124,7 @@
     &__item {
         font-size: 18px;
         line-height: 24px;
-        
+
         &.active {
             font-size: 22px;
             line-height: 28px;
@@ -138,9 +138,7 @@
 }
 
 // Messages=============================================
-.messages {
-
-}
+.messages {}
 
 // Profile=============================================
 .profile {
@@ -185,5 +183,28 @@
         padding: 15px;
         border: 1px solid gray;
         border-radius: 5px;
+    }
+}
+
+// --- Pagination --- //
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px -2px 0;
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin: 0 2px;
+        background: white;
+        border: 1px solid gray;
+
+        &.active {
+            background: rgb(206, 206, 206);
+        }
     }
 }
