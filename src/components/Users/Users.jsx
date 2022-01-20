@@ -59,7 +59,7 @@ const Users = (props) => {
                     </div>
                 </div>
             ))}
-            <div class="pagination">
+            <div className="pagination">
                 {pages.map((page) => {
                     return (
                         <button
