@@ -142,12 +142,18 @@
 
 // Profile=============================================
 .profile {
-    img {
+    &__header-img {
         width: 100%;
     }
 
     &__info {
         padding: 10px;
+    }
+
+    &__name {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 500;
     }
 }
 
@@ -167,6 +173,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
+        object-fit: cover;
     }
 
     &__btn-follow {
