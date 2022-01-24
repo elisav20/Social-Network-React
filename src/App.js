@@ -14,18 +14,17 @@ const App = () => {
                 <Navbar />
                 <div className="content">
                     <Routes>
-                        <Route
-                            path="/profile/*"
-                            element={<ProfileContainer />}
-                        />
+                        <Route path="/profile" element={<ProfileContainer />}>
+                            <Route
+                                path=":userId"
+                                element={<ProfileContainer />}
+                            />
+                        </Route>
                         <Route
                             path="/dialogs/*"
                             element={<DialogsContainer />}
                         />
-                        <Route
-                            path="/users"
-                            element={<UsersContainer />}
-                        />
+                        <Route path="/users" element={<UsersContainer />} />
                     </Routes>
                 </div>
             </div>
