@@ -12,6 +12,7 @@
 
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     grid-area: header;
     background-color: rgb(59, 53, 53);
@@ -213,5 +214,15 @@
         &.active {
             background: rgb(206, 206, 206);
         }
+    }
+}
+
+.login-block {
+    margin-right: 100px;
+    color: white;
+
+    a {
+        color: white;
+        text-decoration: none;
     }
 }
