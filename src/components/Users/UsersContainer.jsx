@@ -1,40 +1,21 @@
 import { connect } from "react-redux";
 import {
-    follow,
-    setUsers,
-    unfollow,
     setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching,
     toggleFollowingProgress,
+    getUsers,
+    follow,
+    unfollow,
 } from "../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
 import Prelaoder from "../common/Preloader/Preloader";
-import { usersAPI } from "../../api/api";
-
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.setIsFetching(true);
-
-        usersAPI
-            .getUsers(this.props.currentPage, this.props.pageSize)
-            .then((data) => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.setIsFetching(true);
-
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-            this.props.setIsFetching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        });
+        this.props.getUsers(pageNumber, this.props.pageSize);
     };
 
     render() {
@@ -49,7 +30,6 @@ class UsersContainer extends React.Component {
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}
-                    toggleFollowingProgress={this.props.toggleFollowingProgress}
                     followingInProgress={this.props.followingInProgress}
                 />
             </>
@@ -69,9 +49,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
     follow,
     unfollow,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching,
     toggleFollowingProgress,
+    getUsers,
 })(UsersContainer);
