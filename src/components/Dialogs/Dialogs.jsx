@@ -1,4 +1,5 @@
 import React from "react";
+import AddMessageForm from "./AddMessageForm";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
@@ -11,12 +12,8 @@ const Dialogs = (props) => {
         <Message message={message.message} key={message.id} />
     ));
 
-    const onSendMessageClick = () => {
-        props.sendMessage();
-    };
-
-    const onMessageChange = (e) => {
-        props.updateNewMessageText(e.target.value);
+    const onSubmit = (formData) => {
+        console.log(formData);
     };
 
     return (
@@ -25,14 +22,7 @@ const Dialogs = (props) => {
             <div className="dialogs__items">{dialogsData}</div>
             <div className="messages">
                 <div>{messagesData}</div>
-                <div>
-                    <textarea
-                        onChange={onMessageChange}
-                        value={props.newMessageText}
-                        placeholder="Enter your message"
-                    />
-                    <button onClick={onSendMessageClick}>Send message</button>
-                </div>
+                <AddMessageForm onSubmit={onSubmit} />
             </div>
         </div>
     );

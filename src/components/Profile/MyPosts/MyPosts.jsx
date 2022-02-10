@@ -1,31 +1,24 @@
 import React from "react";
+import AddPostForm from "./AddPostForm";
 import Post from "./Post";
 
 const MyPosts = (props) => {
     const postsData = props.posts.map((post) => (
-        <Post message={post.message} likesCount={post.likesCount} key={post.id} />
+        <Post
+            message={post.message}
+            likesCount={post.likesCount}
+            key={post.id}
+        />
     ));
 
-    const onAddPost = () => {
-        props.addPost();
-    };
-
-    const onPostChange = (e) => {
-        props.updateNewPostText(e.target.value);
+    const onSubmit = (formData) => {
+        console.log(formData);
     };
 
     return (
         <div className="my-posts">
             <h3>My posts</h3>
-            <div>
-                <div>
-                    <textarea
-                        onChange={onPostChange}
-                        value={props.newPostText}
-                    />
-                </div>
-                <button onClick={onAddPost}>Add post</button>
-            </div>
+            <AddPostForm onSubmit={onSubmit} />
             <div className="posts">{postsData}</div>
         </div>
     );
