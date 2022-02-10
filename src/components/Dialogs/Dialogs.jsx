@@ -13,7 +13,7 @@ const Dialogs = (props) => {
     ));
 
     const addNewMessage = (formData) => {
-        console.log(formData);
+        props.sendMessage(formData.newMessageBody);
     };
 
     return (

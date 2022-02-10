@@ -5,7 +5,7 @@ const AddPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field name="text" placeholder="Text" component="textarea" />
+                <Field name="newPostText" placeholder="Text" component="textarea" />
             </div>
             <button>Add post</button>
         </form>
@@ -13,5 +13,5 @@ const AddPostForm = (props) => {
 };
 
 export default reduxForm({
-    form: "addPostForm",
+    form: "ProfileAddPostForm",
 })(AddPostForm);
