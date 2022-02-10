@@ -12,7 +12,7 @@ const Dialogs = (props) => {
         <Message message={message.message} key={message.id} />
     ));
 
-    const onSubmit = (formData) => {
+    const addNewMessage = (formData) => {
         console.log(formData);
     };
 
@@ -22,7 +22,7 @@ const Dialogs = (props) => {
             <div className="dialogs__items">{dialogsData}</div>
             <div className="messages">
                 <div>{messagesData}</div>
-                <AddMessageForm onSubmit={onSubmit} />
+                <AddMessageForm onSubmit={addNewMessage} />
             </div>
         </div>
     );

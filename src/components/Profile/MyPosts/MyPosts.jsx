@@ -11,14 +11,14 @@ const MyPosts = (props) => {
         />
     ));
 
-    const onSubmit = (formData) => {
+    const addNewPost = (formData) => {
         console.log(formData);
     };
 
     return (
         <div className="my-posts">
             <h3>My posts</h3>
-            <AddPostForm onSubmit={onSubmit} />
+            <AddPostForm onSubmit={addNewPost} />
             <div className="posts">{postsData}</div>
         </div>
     );
