@@ -275,6 +275,12 @@
                 width: auto;
             }
         }
+
+        &.remember {
+            .form-control {
+                width: auto;
+            }
+        }
     }
 
     a.link {
@@ -318,6 +324,22 @@
                     background: #3c4d6d;
                 }
             }
+        }
+    }
+}
+
+.form-control {
+    width: 100%;
+    text-align: left;
+    
+    &.error {
+        input,
+        textarea {
+            border: 1px solid red;
+        }
+
+        span {
+            color: red;
         }
     }
 }
