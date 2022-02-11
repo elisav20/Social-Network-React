@@ -31,7 +31,6 @@ const LoginForm = (props) => {
                     <Field
                         type="checkbox"
                         component={renderField("input")}
-                        validate={[requiredField, maxLength20]}
                         name="rememberMe"
                     />
                     Remember me
