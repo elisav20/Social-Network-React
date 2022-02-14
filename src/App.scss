@@ -347,3 +347,9 @@
 button {
     cursor: pointer;
 }
+
+.form-summary-error {
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}
