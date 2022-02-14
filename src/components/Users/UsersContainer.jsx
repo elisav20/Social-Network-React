@@ -2,26 +2,34 @@ import { connect } from "react-redux";
 import {
     setCurrentPage,
     toggleFollowingProgress,
-    getUsers,
+    requestUsers,
     follow,
     unfollow,
 } from "../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
-import Prelaoder from "../common/Preloader/Preloader";
+import Loader from "../common/Preloader/Preloader";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUserCount,
+    getUsers,
+} from "../../redux/userSelectors";
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.requestUsers(pageNumber, this.props.pageSize);
     };
 
     render() {
         return (
             <>
-                {this.props.isFetching ? <Prelaoder /> : null}
+                {this.props.isFetching ? <Loader /> : null}
                 <Users
                     users={this.props.users}
                     onPageChanged={this.onPageChanged}
@@ -38,12 +46,12 @@ class UsersContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUserCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
 });
 
 export default connect(mapStateToProps, {
@@ -51,5 +59,5 @@ export default connect(mapStateToProps, {
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
-    getUsers,
+    requestUsers,
 })(UsersContainer);
