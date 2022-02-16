@@ -3,8 +3,8 @@ import noUserAvatar from "../../../assets/images/no_user.png";
 import Loader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = (profile, status, updateStatus) => {
+    if (!profile) {
         return <Loader />;
     }
 
@@ -14,17 +14,14 @@ const ProfileInfo = (props) => {
                 <img
                     className="user__img"
                     src={
-                        props.profile.photos.large != null
-                            ? props.profile.photos.large
+                        profile.photos.large != null
+                            ? profile.photos.large
                             : noUserAvatar
                     }
-                    alt={props.profile.fullName}
+                    alt={profile.fullName}
                 />
-                <p className="profile__name">{props.profile.fullName}</p>
-                <ProfileStatus
-                    status={props.status}
-                    updateStatus={props.updateStatus}
-                />
+                <p className="profile__name">{profile.fullName}</p>
+                <ProfileStatus status={status} updateStatus={updateStatus} />
             </div>
         </div>
     );

@@ -5,9 +5,9 @@ import { renderField } from "../common/FormsControls/FormsControls";
 
 const maxLength20 = maxLength(20);
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="content">
                 <div className="input-field">
                     <Field
@@ -39,7 +39,7 @@ const LoginForm = (props) => {
                     Forgot Your Password?
                 </a>
             </div>
-            { props.error && <div className="form-summary-error">{props.error}</div>}
+            {error && <div className="form-summary-error">{error}</div>}
             <div className="action">
                 <button>Register</button>
                 <button>Sign in</button>

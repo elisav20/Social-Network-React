@@ -1,9 +1,9 @@
 import { profileAPI } from "../api/api";
 
-const ADD_POST = "ADD-POST";
-const DELETE_POST = "DELETE_POST";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
-const SET_USER_STATUS = "SET_USER_STATUS";
+const ADD_POST = "samurai-network/profile/ADD-POST";
+const DELETE_POST = "samurai-network/profile/DELETE_POST";
+const SET_USER_PROFILE = "samurai-network/profile/SET_USER_PROFILE";
+const SET_USER_STATUS = "samurai-network/profile/SET_USER_STATUS";
 
 const initialState = {
     profile: null,
@@ -60,7 +60,9 @@ const profileReducer = (state = initialState, action) => {
         case DELETE_POST: {
             return {
                 ...state,
-                postsData: state.postsData.filter((post) => post.id !== action.id),
+                postsData: state.postsData.filter(
+                    (post) => post.id !== action.id
+                ),
             };
         }
         default:
@@ -82,28 +84,22 @@ const setUserStatus = (status) => ({
 });
 
 // Thunk creators
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
-        profileAPI.getProfile(userId).then((response) => {
-            dispatch(setUserProfile(response.data));
-        });
-    };
+export const getUserProfile = (userId) => async (dispatch) => {
+    const response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
 };
-export const getStatus = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userId).then((response) => {
-            dispatch(setUserStatus(response.data));
-        });
-    };
+
+export const getStatus = (userId) => async (dispatch) => {
+    const response = await profileAPI.getStatus(userId);
+    dispatch(setUserStatus(response.data));
 };
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then((response) => {
-            if (response.data.resultCode === 0) {
-                dispatch(setUserStatus(status));
-            }
-        });
-    };
+
+export const updateStatus = (status) => async (dispatch) => {
+    const response = await profileAPI.updateStatus(status);
+
+    if (response.data.resultCode === 0) {
+        dispatch(setUserStatus(status));
+    }
 };
 
 export default profileReducer;

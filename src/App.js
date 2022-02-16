@@ -4,7 +4,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginContainer from "./components/Login/LoginContainer";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -24,31 +24,26 @@ class App extends React.Component {
         }
 
         return (
-            <BrowserRouter>
-                <div className="app-wrapper">
-                    <HeaderContainer />
-                    <Navbar />
-                    <div className="content">
-                        <Routes>
+            <div className="app-wrapper">
+                <HeaderContainer />
+                <Navbar />
+                <div className="content">
+                    <Routes>
+                        <Route path="/profile" element={<ProfileContainer />}>
                             <Route
-                                path="/profile"
+                                path=":userId"
                                 element={<ProfileContainer />}
-                            >
-                                <Route
-                                    path=":userId"
-                                    element={<ProfileContainer />}
-                                />
-                            </Route>
-                            <Route
-                                path="/dialogs/*"
-                                element={<DialogsContainer />}
                             />
-                            <Route path="/users" element={<UsersContainer />} />
-                            <Route path="/login" element={<LoginContainer />} />
-                        </Routes>
-                    </div>
+                        </Route>
+                        <Route
+                            path="/dialogs/*"
+                            element={<DialogsContainer />}
+                        />
+                        <Route path="/users" element={<UsersContainer />} />
+                        <Route path="/login" element={<LoginContainer />} />
+                    </Routes>
                 </div>
-            </BrowserRouter>
+            </div>
         );
     }
 }
