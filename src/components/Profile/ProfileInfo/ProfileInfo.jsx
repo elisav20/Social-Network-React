@@ -8,8 +8,6 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
         return <Loader />;
     }
 
-    console.log(profile);
-
     return (
         <div className="profile">
             <div className="profile__info">
