@@ -3,10 +3,12 @@ import noUserAvatar from "../../../assets/images/no_user.png";
 import Loader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = (profile, status, updateStatus) => {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
     if (!profile) {
         return <Loader />;
     }
+
+    console.log(profile);
 
     return (
         <div className="profile">
