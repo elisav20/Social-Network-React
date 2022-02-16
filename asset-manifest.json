@@ -1,0 +1,38 @@
+{
+  "files": {
+    "static/js/0.ac9f4996.chunk.js": "/elisav-network/static/js/0.ac9f4996.chunk.js",
+    "static/js/0.ac9f4996.chunk.js.map": "/elisav-network/static/js/0.ac9f4996.chunk.js.map",
+    "main.css": "/elisav-network/static/css/main.ebef1c7c.chunk.css",
+    "main.js": "/elisav-network/static/js/main.db3c9694.chunk.js",
+    "main.js.map": "/elisav-network/static/js/main.db3c9694.chunk.js.map",
+    "runtime-main.js": "/elisav-network/static/js/runtime-main.b94f3f3e.js",
+    "runtime-main.js.map": "/elisav-network/static/js/runtime-main.b94f3f3e.js.map",
+    "static/js/3.434dc817.chunk.js": "/elisav-network/static/js/3.434dc817.chunk.js",
+    "static/js/3.434dc817.chunk.js.map": "/elisav-network/static/js/3.434dc817.chunk.js.map",
+    "static/js/4.a488958b.chunk.js": "/elisav-network/static/js/4.a488958b.chunk.js",
+    "static/js/4.a488958b.chunk.js.map": "/elisav-network/static/js/4.a488958b.chunk.js.map",
+    "static/js/5.a0733249.chunk.js": "/elisav-network/static/js/5.a0733249.chunk.js",
+    "static/js/5.a0733249.chunk.js.map": "/elisav-network/static/js/5.a0733249.chunk.js.map",
+    "static/js/6.f30fd3c1.chunk.js": "/elisav-network/static/js/6.f30fd3c1.chunk.js",
+    "static/js/6.f30fd3c1.chunk.js.map": "/elisav-network/static/js/6.f30fd3c1.chunk.js.map",
+    "static/js/7.4587545e.chunk.js": "/elisav-network/static/js/7.4587545e.chunk.js",
+    "static/js/7.4587545e.chunk.js.map": "/elisav-network/static/js/7.4587545e.chunk.js.map",
+    "static/js/8.e0d69887.chunk.js": "/elisav-network/static/js/8.e0d69887.chunk.js",
+    "static/js/8.e0d69887.chunk.js.map": "/elisav-network/static/js/8.e0d69887.chunk.js.map",
+    "index.html": "/elisav-network/index.html",
+    "static/css/main.ebef1c7c.chunk.css.map": "/elisav-network/static/css/main.ebef1c7c.chunk.css.map",
+    "static/js/0.ac9f4996.chunk.js.LICENSE.txt": "/elisav-network/static/js/0.ac9f4996.chunk.js.LICENSE.txt",
+    "static/js/3.434dc817.chunk.js.LICENSE.txt": "/elisav-network/static/js/3.434dc817.chunk.js.LICENSE.txt",
+    "static/media/like.16ac3e7e.svg": "/elisav-network/static/media/like.16ac3e7e.svg",
+    "static/media/logo.d700c320.svg": "/elisav-network/static/media/logo.d700c320.svg",
+    "static/media/no_user.png": "/elisav-network/static/media/no_user.c4c9739b.png",
+    "static/media/preloader.91c2aa94.svg": "/elisav-network/static/media/preloader.91c2aa94.svg",
+    "static/media/user_avatar.e582e4ba.png": "/elisav-network/static/media/user_avatar.e582e4ba.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b94f3f3e.js",
+    "static/js/3.434dc817.chunk.js",
+    "static/css/main.ebef1c7c.chunk.css",
+    "static/js/main.db3c9694.chunk.js"
+  ]
+}
