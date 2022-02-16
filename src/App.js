@@ -10,6 +10,9 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/appReducer";
 import Loader from "./components/common/Preloader/Preloader";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import store from "./redux/reduxStore";
 
 import "./App.scss";
 
@@ -52,4 +55,15 @@ let mapStateToProps = (state) => ({
     initialized: state.app.initialized,
 });
 
-export default compose(connect(mapStateToProps, { initializeApp }))(App);
+const AppContainer = compose(connect(mapStateToProps, { initializeApp }))(App);
+const MainApp = () => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer />
+            </Provider>
+        </BrowserRouter>
+    );
+};
+
+export default MainApp;
